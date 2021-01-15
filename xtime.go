@@ -8,8 +8,8 @@ var now func() time.Time = time.Now
 
 // Mock overwrites return value of xtime.Now().
 // You must not use this function except for in test.
-func Mock(t time.Time) {
-	now = func() time.Time { return t }
+func Mock(fn func() time.Time) {
+	now = fn
 }
 
 // Now returns the value of time.Now().
